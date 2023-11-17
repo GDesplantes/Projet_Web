@@ -1,7 +1,7 @@
 <?php
 
 function hello(string $name) :string{
-    if ($name === "") {
+    if ($name == "") {
         return " nobody";
     }
     else {
