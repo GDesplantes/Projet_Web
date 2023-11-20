@@ -3,10 +3,10 @@
 
 function getMC2() 
 {
-    echo "Einstein";
+    return "Einstein";
 }
 
-echo getMC2();
+// echo getMC2();
 //3.B
 
 function getUserName(string $prenom,string $nom) :string
@@ -32,7 +32,7 @@ function getFullName( string $prenom2,string $nom2) :string
 function askUser( string $nom, string $prenom) :string
 {
     return "Bonjour " . $prenom . " " .mb_strtoupper($nom) 
-    . ", connaissez-vous " . getMC2() ."?";
+    . ", connaissez-vous " . getMC2() ." ?";
 }
 
 echo askUser("Desplantes","Guilaume");
