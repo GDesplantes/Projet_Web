@@ -30,7 +30,9 @@ function lastItem(array $array)
 
 // echo lastItem($names);
 
-function sortItems(array $array){
+//Exo 6.C
+function sortItems(array $array)
+{
     if(empty($array))
     {
         return [];
@@ -38,4 +40,19 @@ function sortItems(array $array){
     rsort($array) ;
     return implode(',',$array);
 }
-echo(sortItems($names));
+//echo(sortItems($names));
+
+
+//Exo 6.D
+
+function stringsItems(array $array)
+{
+    if(empty($array))
+    {
+        return "Nothing to display";
+    }
+    asort($array);
+    return implode(', ',$array);
+}
+
+echo stringsItems($names);
