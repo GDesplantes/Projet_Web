@@ -46,5 +46,12 @@ function userLogin (string $nomUtilisateur, string $mdp, array $array) :bool
     'jack' => 'Azer-4321',
     'admin' => '1234_Azer'];
 
+    if(passwordCheck() == true)
+    {
+        foreach($listUtilisateur as $name => $mdp)
+        {
+            
+        }
+    }
     
 }
