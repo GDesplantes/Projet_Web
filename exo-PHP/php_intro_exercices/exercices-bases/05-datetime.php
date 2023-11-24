@@ -10,7 +10,7 @@ function getToday()
 
 // echo getToday();
 
-function getTimeLeft(string $date) :string 
+function getTimeLeft(string $date)  
 {
     $dateActuel = date('Y-m-d',time());
     $date=date('Y-m-d');
