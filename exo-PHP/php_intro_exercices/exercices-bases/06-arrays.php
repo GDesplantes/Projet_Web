@@ -25,13 +25,13 @@ function lastItem(array $array)
         return null;
     }
 
-    return $array[sizeof($array)-1];
+    return $array[count($array)-1];
 }
 
 // echo lastItem($names);
 
 //Exo 6.C
-function sortItems(array $array)
+function sortItems(array $array) : string 
 {
     if(empty($array))
     {

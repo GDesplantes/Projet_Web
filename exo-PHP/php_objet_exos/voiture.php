@@ -1,32 +1,26 @@
 <?php
 
-
-
-
+require('Moteur.php');
 class Voiture
 {
-    private $modele;
-    private $marque;
-    private $poids;
+    private string $modele;
+    private string $marque;
+    private int $poids;
+    private Moteur $moteur;
 
-    public function __construct(string $modele, string $marque,int $poids)
+    public function __construct(string $nouveauModele = "pizza", string $nouvelleMarque = "Findus", int $nouveauPoids = 15000, Moteur $moteur)
     {
-        $this->modele = $modele;
-        $this->marque = $marque;
-        $this->poids = $poids;
+        $this->modele = $nouveauModele;
+        $this->marque = $nouvelleMarque;
+        $this->poids = $nouveauPoids;
+        $this->moteur = new Moteur();
+
     }
 
-    // public function __constructeur()
-    // {
-    //     $this->modele = "2" ;
-    //     $this->marque = "Schoumi" ;
-    //     $this->poids = 100;
-    // }
-
+  
 
 
 }
 
-var_export($voiture = new Voiture("tutut","test",100));
-
-// var_export($voiture = new Voiture());
+$maVoiture = new Voiture();
+var_export($maVoiture);

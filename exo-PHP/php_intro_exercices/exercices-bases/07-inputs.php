@@ -27,31 +27,55 @@ function passwordCheck(string $string):bool
     // preg_match('/[0-9]/',$string)  && 
     preg_match('/[^a-zA-Z0-9]/',$string))
     {
-        echo "true";
+        // echo "true";
         return true;
     }
     else {
-        echo "false";
+        // echo "false";
         return false;
     }
 
 }
 
-echo passwordCheck("sfdg45wdfgAnjkhdsfjknb@");
+// echo passwordCheck("sfdg45wdfgAnjkhdsfjknb@");
 
-function userLogin (string $nomUtilisateur, string $mdp, array $array) :bool
-{
-    $listUtilisateur = [
+$listUtilisateur = [
     'joe' => 'Azer1234!',
     'jack' => 'Azer-4321',
     'admin' => '1234_Azer'];
 
-    if(passwordCheck() == true)
+function userLogin (string $nomUtilisateur, string $mdp, array $table) :bool
+{
+    
+    $trouve=false;
+
+    if(passwordCheck($mdp))
     {
-        foreach($listUtilisateur as $name => $mdp)
+
+        foreach($table as $name => $value)
         {
-            
+            if ($nomUtilisateur == $name && $mdp == $value)
+            {
+                echo "Vous êtes connécté! \n";
+                $trouve=true;   
+            } 
         }
+           
+        if($trouve==false )
+            echo "Mot de passe inconnue! \n";
+        
+    }
+    else 
+    {
+        echo "Mot de passe non conforme \n";
     }
     
+
+   return $trouve;
+
+    
 }
+
+ echo userLogin("joe","1234",$listUtilisateur);
+ echo userLogin("joe","Unbonformat!2",$listUtilisateur);
+ echo userLogin("joe","Azer1234!",$listUtilisateur);

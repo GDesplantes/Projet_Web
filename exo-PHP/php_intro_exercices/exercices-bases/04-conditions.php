@@ -67,54 +67,69 @@ function getMax (float $nb1,float $nb2,float $nb3) :float
 
 function capitalCity(string $_pays)
 {
-$pays= $_pays;
+$_pays;
 
 $tabPays =["France","Allemagne", "Italie","Maroc","Espagne",
 "Portugal","Angleterre"];
 
 // boucle for
+$trouve=false;
 
-for ($i = 0; $i < sizeof($tabPays); $i++)
+for ($i = 0; $i < count($tabPays); $i++)
 {
     // echo " " . $tabPays[$i];
-    if ($tabPays[$i] == $pays ){
+    if ($tabPays[$i]==$_pays ){
         
-        switch ($pays) {
+        switch ($_pays) {
             case "France":
+                $trouve=true;
             echo " Paris";
             break;
         
             case "Allemagne":
+                $trouve=true;
             echo " Berlin";
             break;
             
             case "Italie":
+                $trouve=true;
             echo "Rome";
             break;
         
             case "Maroc":
+                $trouve=true;
             echo " Rabat";
             break;
             
             case "Espagne":
+                $trouve=true;
             echo " Madrid";
             break;
                 
             case "Portugal":
+                $trouve=true;
             echo " Lisbonne";
             break;
         
             case "Angleterre":
+                $trouve=true;
             echo " Londres";
             break;
 
-            default:
-            echo "Capitale inconnue";
+        
          }
-       
+        
     }
+
+   
+
     
     
+}
+
+if ($trouve == false)
+{
+    echo "Capitale inconnue";
 }
 
 }
