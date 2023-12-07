@@ -35,9 +35,46 @@ class MyTable
         $data = $state->fetchAll();
 
         // ajouter le tableau des noms de champs au début du tableau de données
-        array_unshift($data, $this->tabNomCol);
+       // array_unshift($data, $this->tabNomCol);
+
 
         return $data;
+    }
+
+    public function rendreHTML() : string 
+    {
+
+       $maChaine="";
+
+        $mesDatas = $this->readTable();
+ for ($i=0; $i < count($mesDatas); $i++) { 
+    # code...
+    $maChaine .= '<div class="d-inline-block card text-bg-white mb-3" style="max-width: 18rem;"> ';
+        foreach ($mesDatas[$i] as $key => $value) {
+            if ($key == 'nom')
+            {
+                $maChaine.=   '<div class="card-header">'.$value.'</div>'
+               ;
+            }
+            else if ($key == 'commentaire')
+            {
+                $maChaine.= '<p class="card-text">'.$value.'</p>';
+            }
+        
+            else 
+            {
+                $maChaine.='<h5 class="card-title">'.$value.'</div></h5>';
+            }
+        }
+      
+     
+           $maChaine.= '<button type="button" class="btn btn-success">Modiffier</button>
+            <button type="button" class="btn btn-danger">Supprimer</button>
+            </div></div> <div class="card-body">';
+    }
+
+
+        return $maChaine;
     }
 
     private function getFieldsNames(): array

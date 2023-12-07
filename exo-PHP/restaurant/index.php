@@ -15,25 +15,29 @@
     $maTable = new MyTable("restaurants");
 
     $mesDonnees = $maTable->readTable();
+
+    $maChaine= $maTable->rendreHTML();
+
+    echo '<div class="container-fluid">'.$maChaine.'</div>';
     //  var_dump($mesDonnees);
 
 
-    echo "<table class='table table-dark table-hover'><thead><tr>";
-    foreach ($mesDonnees[0] as $value) {
+    // echo "<table class='table table-dark table-hover'><thead><tr>";
+    // foreach ($mesDonnees[0] as $value) {
 
-        echo "<th>$value</th>";
-    }
+    //     echo "<th>$value</th>";
+    // }
 
-    echo "</tr></thead><tbody>";
-    for ($i = 1; $i < count($mesDonnees); $i++) {
+    // echo "</tr></thead><tbody>";
+    // for ($i = 1; $i < count($mesDonnees); $i++) {
 
-        echo "<tr>";
-        for ($j = 0; $j < count($mesDonnees[$i]); $j++) {
-            echo "<td>" . $mesDonnees[$i][$j] . "</td>";
-        }
-        echo "</tr>";
-    }
-    echo "</tbody></table>";
+    //     echo "<tr>";
+    //     for ($j = 0; $j < count($mesDonnees[$i]); $j++) {
+    //         echo "<td>" . $mesDonnees[$i][$j] . "</td>";
+    //     }
+    //     echo "</tr>";
+    // }
+    // echo "</tbody></table>";
 
 
     ?>

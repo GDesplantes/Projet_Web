@@ -4,12 +4,13 @@
 class Connexion
 {
 
+    //PATERN CONNEXION SINGLETON
 
     private static $connection = null;
     private static $host = 'localhost';
     private static $user = 'root';
     private static $pass = '';
-    private static $base = "guide";
+    private static $base = "db_guide";
 
     private function __construct()
     {
@@ -26,7 +27,7 @@ class Connexion
                     self::$user,
                     self::$pass,
                     array(
-                        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_NUM,
+                        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
                         PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"
                     )
                 );
