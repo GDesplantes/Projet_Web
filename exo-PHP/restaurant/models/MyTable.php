@@ -48,7 +48,7 @@ class MyTable
 
         $mesDatas = $this->readTable();
  for ($i=0; $i < count($mesDatas); $i++) { 
-    # code...
+    
     $maChaine .= '<div class="d-inline-block card text-bg-white mb-3" style="max-width: 18rem;"> ';
         foreach ($mesDatas[$i] as $key => $value) {
             if ($key == 'nom')
