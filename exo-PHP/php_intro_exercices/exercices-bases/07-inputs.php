@@ -2,14 +2,14 @@
 
 function stringLength(string $string) :bool
 {
-    if (strlen($string)>=9)
+    if (strlen(trim($string," "))>=9)
     {
         echo "true";
         return true;
     }
     else    
     {
-        echo "false";
+        echo "c'est faux!";
         return false;
     }
 
@@ -18,27 +18,32 @@ function stringLength(string $string) :bool
 }
 
 // echo stringLength("motDePasseDepassant9Charactères");
-
-function passwordCheck(string $string):bool
+// echo "<hr>";
+// echo stringLength("                           ");
+// echo "<hr>";
+function passwordCheck(string $string):bool // A CORRIGER
 {
-    if ( strlen($string)>=9 && 
+    stringLength($string);
+    if (preg_match('/[^a-zA-Z0-9]/',$string))
     // preg_match('/[a-z]/',$string) && 
     // preg_match('/[A-Z]/',$string) && 
     // preg_match('/[0-9]/',$string)  && 
-    preg_match('/[^a-zA-Z0-9]/',$string))
+    
     {
-        // echo "true";
+       
         return true;
     }
     else {
-        // echo "false";
+        
         return false;
     }
 
 }
 
-// echo passwordCheck("sfdg45wdfgAnjkhdsfjknb@");
-
+var_dump( passwordCheck("sfdg45wdAnjkhdsfjknb@"));
+echo "<hr>";
+var_dump( passwordCheck("gn                                       e@"));
+echo "<hr>";
 $listUtilisateur = [
     'joe' => 'Azer1234!',
     'jack' => 'Azer-4321',
@@ -76,6 +81,9 @@ function userLogin (string $nomUtilisateur, string $mdp, array $table) :bool
     
 }
 
- echo userLogin("joe","1234",$listUtilisateur);
- echo userLogin("joe","Unbonformat!2",$listUtilisateur);
- echo userLogin("joe","Azer1234!",$listUtilisateur);
+//  echo userLogin("joe","1234",$listUtilisateur);
+//  echo "<hr>";
+//  echo userLogin("joe","Unbonformat!2",$listUtilisateur);
+//  echo "<hr>";
+//  echo userLogin("joe","Azer1234!",$listUtilisateur);
+//  echo "<hr>";

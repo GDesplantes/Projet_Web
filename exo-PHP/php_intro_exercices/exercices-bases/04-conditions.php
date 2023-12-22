@@ -2,7 +2,8 @@
 //Exo 4.A
 function isMajor(int $age) :bool
 {
-    if ($age >=18) {
+    $maj=18;
+    if ($age >=$maj) {
         echo "true ";
         return true;
         
@@ -14,9 +15,10 @@ function isMajor(int $age) :bool
     }
 }
 
-// echo isMajor(12); renvoie rien dans la console
-// echo isMajor(18); renvoie un "1"
-// echo isMajor(42); renvoie un "1"
+echo isMajor(12); //renvoie rien dans la console
+
+echo isMajor(18); //renvoie un "1"
+echo isMajor(42); //renvoie un "1"
 
 //Exo 4.B
 
@@ -40,10 +42,10 @@ function getRetired(int $age) : string
     }
 }
 
-// echo getRetired(12);
-// echo getRetired(60);
-// echo getRetired(72);
-// echo getRetired(-2);
+echo getRetired(12);
+echo getRetired(60);
+echo getRetired(72);
+echo getRetired(-2);
 
 //Exo 4.C
 
@@ -59,8 +61,8 @@ function getMax (float $nb1,float $nb2,float $nb3) :float
     }
 }
 
-// echo getMax(250.0364,25,-359.5489);
-// echo getMax(250.0364,25,25);
+echo getMax(250.0364,25,-359.5489);
+echo getMax(250.0364,25,25);
 
 
 //Exo 4.D

@@ -12,20 +12,20 @@ function getToday()
 
 function getTimeLeft(string $date)
 {
-    $dateUtilisateur = 0;
-    $dateJour = new DateTime();
+    $date = new DateTime($date); 
+    $dateJour = new DateTime("2020-01-30");
     try {
-        $dateUtilisateur = new DateTime($date);
+        
 
-        if ($dateJour->format("Y-m-d") < $dateUtilisateur->format("Y-m-d")) {
-            $diff = $dateUtilisateur->diff($dateJour);
+        if ($dateJour->format("Y-m-d") < $date->format("Y-m-d")) {
+            $diff = $date->diff($dateJour);
 
-            echo "année: " . $diff->y . "\n";
-            echo "mois: " . $diff->m . "\n";
-            echo "jour: " . $diff->d. "\n";
+            echo "Cette date arrivera dans :" . $diff->y . " an(s), \n";
+            echo  $diff->m . " mois et \n";
+            echo $diff->d. "  jours\n";
         }
 
-        else if ($dateJour->format("Y-m-d") == $dateUtilisateur->format("Y-m-d"))
+        else if ($dateJour->format("Y-m-d") == $date->format("Y-m-d"))
         {
             echo "Aujourd'hui";
         }
@@ -35,8 +35,20 @@ function getTimeLeft(string $date)
             echo "Evènement passé";
         }
     } catch (Exception $e) {
-        echo $e->getMessage();
+        echo $e->getMessage("C'est Faux");
     }
 }
 
-echo getTimeLeft("2023-11-30");
+
+getTimeLeft ("2019-09-29"); // retourne « Évènement passé »
+echo "<hr>";
+getTimeLeft ("2020-01-30"); // retourne « Aujourd'hui »
+echo "<hr>";
+getTimeLeft ("2020-02-15"); // retourne « Dans 16 jours »
+echo "<hr>";
+getTimeLeft ("2020-05-16"); // retourne « Dans 4 mois et 17 jours »
+echo "<hr>";
+getTimeLeft ("2021-05-30"); // retourne « Dans 1 an et 4 mois »
+echo "<hr>";
+getTimeLeft ("2022-10-17"); // retourne « Dans 2 ans et 9 mois »
+echo "<hr>";

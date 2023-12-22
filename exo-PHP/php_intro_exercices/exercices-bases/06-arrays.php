@@ -1,6 +1,7 @@
 <?php
 
 $names = ['Joe','Jack','Léa','Zoé','Néo'];
+$nameNull=[];
 
 function firstItem(array $array)
 {
@@ -35,13 +36,17 @@ function sortItems(array $array) : string
 {
     if(empty($array))
     {
-        return [];
+        return implode([]);
     }
-    rsort($array) ;
+    else 
+    {
+        rsort($array) ;
     return implode(',',$array);
+    }
+    
 }
-//echo(sortItems($names));
-
+echo(sortItems($names));
+echo "<hr>";
 
 //Exo 6.D
 
@@ -54,5 +59,5 @@ function stringsItems(array $array)
     asort($array);
     return implode(', ',$array);
 }
-
+echo "<br>";
 echo stringsItems($names);
