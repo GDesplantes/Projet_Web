@@ -17,24 +17,34 @@ function stringLength(string $string) :bool
 
 }
 
+
+function testRegex (string $mdp) 
+{
+}
+
+
+// var_dump( testRegex("Bonjour"));
+// echo "<hr>";
+// var_dump(testRegex("Bon JOUR"));
 // echo stringLength("motDePasseDepassant9Charactères");
 // echo "<hr>";
 // echo stringLength("                           ");
 // echo "<hr>";
 function passwordCheck(string $string):bool // A CORRIGER
 {
-    stringLength($string);
-    if (preg_match('/[^a-zA-Z0-9]/',$string))
+    stringLength($string); 
+    echo $string;                 //autre regex /[^a-zA-Z0-9]/
+    if (preg_match('^(?=.*?[A-Z])(?=[a-z])(?=.*?[0-9])(?=.*?[\S]).{9,}$^',$string,))
     // preg_match('/[a-z]/',$string) && 
     // preg_match('/[A-Z]/',$string) && 
     // preg_match('/[0-9]/',$string)  && 
     
     {
-       
+       echo "chehhhhh";
         return true;
     }
     else {
-        
+        echo "C'est faux!";
         return false;
     }
 
@@ -42,7 +52,7 @@ function passwordCheck(string $string):bool // A CORRIGER
 
 var_dump( passwordCheck("sfdg45wdAnjkhdsfjknb@"));
 echo "<hr>";
-var_dump( passwordCheck("gn                                       e@"));
+var_dump( passwordCheck("gne@A5euify      sdhkjhsed"));
 echo "<hr>";
 $listUtilisateur = [
     'joe' => 'Azer1234!',
