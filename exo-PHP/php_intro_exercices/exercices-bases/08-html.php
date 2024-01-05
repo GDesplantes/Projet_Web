@@ -9,11 +9,11 @@ function htmlList(string $string, array $array)
     
     if(empty($array))
     {
-        echo "<p> Aucun résultat </p>";
+        echo "<p> Aucun résultat (cheh) </p>";
     }
     else {
-        
-        for($i=0; $i<sizeof($array)-1; $i++)
+        $array[]=sort($array);
+        for($i=0; $i<count($array)-1; $i++)
         {
             echo "<li>" . $array[$i] . "</li> \n";
         }

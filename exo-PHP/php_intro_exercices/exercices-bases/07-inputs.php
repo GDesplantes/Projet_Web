@@ -34,66 +34,75 @@ function passwordCheck(string $string):bool // A CORRIGER
 {
     stringLength($string); 
     echo $string;                 //autre regex /[^a-zA-Z0-9]/
-    if (preg_match('^(?=.*?[A-Z])(?=[a-z])(?=.*?[0-9])(?=.*?[\S]).{9,}$^',$string,))
+    if (preg_match('/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[-+!*$@%_])([-+!*$@%_\w]{9,})$/',$string,))
     // preg_match('/[a-z]/',$string) && 
     // preg_match('/[A-Z]/',$string) && 
     // preg_match('/[0-9]/',$string)  && 
     
     {
-       echo "chehhhhh";
+    //    echo "chehhhhh";
         return true;
     }
     else {
-        echo "C'est faux!";
+        // echo "C'est faux!";
         return false;
     }
 
 }
 
-var_dump( passwordCheck("sfdg45wdAnjkhdsfjknb@"));
-echo "<hr>";
-var_dump( passwordCheck("gne@A5euify      sdhkjhsed"));
-echo "<hr>";
-$listUtilisateur = [
-    'joe' => 'Azer1234!',
-    'jack' => 'Azer-4321',
-    'admin' => '1234_Azer'];
+// var_dump( passwordCheck("sfdg45wdAnjkhdsfjknb@"));
+// echo "<hr>";
+// var_dump( passwordCheck("gne@A5euify      sdhkjhsed"));
+// echo "<hr>";
 
-function userLogin (string $nomUtilisateur, string $mdp, array $table) :bool
+function userLogin (string $nomUtilisateur, string $mdp) :bool
 {
     
-    $trouve=false;
+    $listUtilisateur = [
+        'joe' => 'Azer1234!',
+        'jack' => 'Azer-4321',
+        'admin' => '1234_Azer'];
+    
+    //$trouve=false;
 
     if(passwordCheck($mdp))
     {
 
-        foreach($table as $name => $value)
+        foreach($listUtilisateur as $name => $value)
         {
             if ($nomUtilisateur == $name && $mdp == $value)
             {
-                echo "Vous êtes connécté! \n";
-                $trouve=true;   
+                echo "Vous êtes connécté! \n". $name;
+                echo $value;
+                return true;   
             } 
         }
            
-        if($trouve==false )
-            echo "Mot de passe inconnue! \n";
+        if($nomUtilisateur != $name || $mdp != $value)
+        
+            echo $value;
+            echo "Mot de passe inconnue! \n". $name;
         
     }
     else 
     {
         echo "Mot de passe non conforme \n";
     }
+
+    return false;
     
 
-   return $trouve;
+   
 
     
 }
 
-//  echo userLogin("joe","1234",$listUtilisateur);
-//  echo "<hr>";
-//  echo userLogin("joe","Unbonformat!2",$listUtilisateur);
-//  echo "<hr>";
-//  echo userLogin("joe","Azer1234!",$listUtilisateur);
-//  echo "<hr>";
+ echo userLogin("joe","1234");
+ echo "<hr>";
+ echo userLogin("joe","Unbonformat!2");
+ echo "<hr>";
+ echo userLogin("joe","Azer1234!");
+ echo "<hr>";
+ echo userLogin("jack","Azer-4321");
+ echo "<hr>";
+ echo userLogin("admin","1234_Azer");
