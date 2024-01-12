@@ -16,6 +16,7 @@ table .colonne {
     text-align: right;
 }
 
+
 #page {
     position: relative;
     background-color: #FFF;
@@ -169,3 +170,12 @@ div#menu {
     vertical-align: auto;
 
 }
+tr:nth-child(odd)  {
+   background-color:#D6FFD7;    
+}
+
+tr:nth-child(even){
+    background-color: #FFFFFF;
+}
+ 
+

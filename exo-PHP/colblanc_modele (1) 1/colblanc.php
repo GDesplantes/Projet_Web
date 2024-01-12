@@ -178,15 +178,15 @@
         $connect = Connexion::getInstance();
         $rq = "SELECT nom_etab, type_etab, nom_resp, adresse, cp, ville, Telephone, email FROM institutions WHERE depart=:departement " . $finrq;
         //and type_etab in ('TPE','GE') ;
-        echo $rq;
+        //echo $rq;
         $state = $connect->prepare($rq);
         $state->bindParam(":departement", $_POST["dep"], PDO::PARAM_INT);
         $state->execute();
         $data = [];
         $nbEntr = 0;
 
-        echo "<caption> Résultat de votre recherche</caption> <table class='table table-striped table-hover'>";
-        echo "<thead><tr><th>Nom établissement</th> <th>Type étab</th> <th>Nom resp</th> <th>adresse</th> <th>Code Postal</th> <th>Ville</th> <th>Tél</th> <th>Mail</th> </tr></thead> <tbody>";
+        echo "<caption> Résultat de votre recherche</caption> <table class=''>";
+        echo "<thead><tr ><th>Nom établissement</th> <th>Type étab</th> <th>Nom resp</th> <th>adresse</th> <th>Code Postal</th> <th>Ville</th> <th>Tél</th> <th>Mail</th> </tr></thead> <tbody>";
 
 
         while ($obj = $state->fetch()) {
