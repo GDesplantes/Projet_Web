@@ -16,7 +16,7 @@
             </section>
             <section id="impot">
                 <label for="montantImpot">Revenu en €: </label>
-                <input type="number" name="revenu" id="revenu" value="">
+                <input type="number" name="revenu" id="revenu" value="" step="0.1">
             </section>
             <section id="bpsubmit">
                 <input type="submit" name="envoie" id="bpValider" value="OK">
